@@ -9,6 +9,6 @@ import java.util.List;
 import java.util.Queue;
 
 public interface CourseDao extends CrudRepository<Course,Integer> {
-    @Query(value="SELECT `id`, `coursedescription`, `coursetitle`, `coursevenu`, `date`, `duration` FROM `course` WHERE `coursetitle`= :coursetitle",nativeQuery = true)
+    @Query(value="SELECT `id`, `coursedescription`, `coursetitle`, `coursevenu`, `date`, `duration` FROM `course` WHERE `coursetitle` LIKE %:coursetitle%",nativeQuery = true)
     List<Course> SearchCourse(@Param("coursetitle") String coursetitle);
 }
